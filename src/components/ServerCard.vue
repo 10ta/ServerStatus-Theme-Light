@@ -1,29 +1,19 @@
 <template>
 
-    <!-- class="rounded-xl px-4 py-3 relative bg-gray-100"  -->
-  <div 
-    class="rounded-xl px-4 py-3 relative bg-gray-100" style="opacity: 0.7;"
-  >
+  <!-- class="rounded-xl px-4 py-3 relative bg-gray-100"  -->
+  <div class="rounded-xl px-4 py-3 relative bg-gray-100"
+    style="opacity: 0.65; color: #FFFFFF; background-color: #000000;">
     <div class="absolute right-4 top-4 group flex flex-col items-end">
-      <StatusIndicator
-        :status="isOnline(server)"
-        class="w-3 h-3"
-      />
+      <StatusIndicator :status="isOnline(server)" class="w-3 h-3" />
       <div class="hidden group-hover:block p-2 rounded-xl border text-sm bg-gray-100 z-[9999] mt-1 border-gray-400">
         <div class="flex gap-2">
           <div class="flex items-center gap-1">
             IPv4
-            <StatusIndicator
-              :status="server.online4"
-              class="w-2 h-2"
-            />
+            <StatusIndicator :status="server.online4" class="w-2 h-2" />
           </div>
           <div class="flex items-center gap-1">
             IPv6
-            <StatusIndicator
-              :status="server.online6"
-              class="w-2 h-2"
-            />
+            <StatusIndicator :status="server.online6" class="w-2 h-2" />
           </div>
         </div>
         <div v-if="server.latest_ts !== undefined">
@@ -36,25 +26,17 @@
       <span v-if="isCountryFlagEmoji(server.location)">
         {{ server.location }}
       </span>
-      <img
-        v-else
-        :src="`/image/flags/${server.location.toLowerCase()}.png`" :alt="`${server.location} flag`"
-        class="h-4 inline-block rounded-sm"
-      >
-      <img
-        v-if="labels.os !== undefined"
-        :src="`/image/os/${labels.os}.png`" :alt="`${labels.os} os`"
-        class="h-4 inline-block rounded-sm"
-      >
+      <img v-else :src="`/image/flags/${server.location.toLowerCase()}.png`" :alt="`${server.location} flag`"
+        class="h-4 inline-block rounded-sm">
+      <img v-if="labels.os !== undefined" :src="`/image/os/${labels.os}.png`" :alt="`${labels.os} os`"
+        class="h-4 inline-block rounded-sm">
       {{ server.alias || server.name }}
     </div>
     <div>
       运行时间
-      <span
-        :class="{
-          'text-red-500': !isOnline(server),
-        }"
-      >
+      <span :class="{
+        'text-red-500': !isOnline(server),
+      }">
         {{ isOnline(server) ? server.uptime : '离线' }}
       </span>
     </div>
@@ -78,30 +60,20 @@
     </div>
     <div v-if="server.cpu !== undefined" class="flex items-center gap-2">
       CPU
-      <Progress
-        :value="server.cpu" :max="100"
-        :text="`${server.cpu}%`"
-        class="flex-1"
-      >
+      <Progress :value="server.cpu" :max="100" :text="`${server.cpu}%`" class="flex-1">
         {{ server.cpu }}%
       </Progress>
     </div>
     <StatusChart v-if="showCpuChart" :data="cpuHistory" />
     <div v-if="server.memory_total !== undefined" class="flex items-center gap-2">
       内存
-      <Progress
-        :value="server.memory_used" :max="server.memory_total"
-        class="flex-1"
-      >
+      <Progress :value="server.memory_used" :max="server.memory_total" class="flex-1">
         {{ formatBytes(server.memory_used * 1024) }} / {{ formatBytes(server.memory_total * 1024) }}
       </Progress>
     </div>
     <div v-if="server.hdd_total !== undefined" class="flex items-center gap-2">
       硬盘
-      <Progress
-        :value="server.hdd_used" :max="server.hdd_total"
-        class="flex-1"
-      >
+      <Progress :value="server.hdd_used" :max="server.hdd_total" class="flex-1">
         {{ formatBytes(server.hdd_used * 1024 * 1024) }} / {{ formatBytes(server.hdd_total * 1024 * 1024) }}
       </Progress>
     </div>
@@ -129,10 +101,7 @@
         {{ formatBytes(server.swap_used * 1024) }} / {{ formatBytes(server.swap_total * 1024) }}
       </Bandage>
     </div>
-    <div
-      v-if=" !compactMode"
-      class="flex gap-1 flex-wrap mt-1"
-    >
+    <div v-if="!compactMode" class="flex gap-1 flex-wrap mt-1">
       <Bandage v-if="server.tcp_count !== undefined">
         TCP {{ server.tcp_count }}
       </Bandage>

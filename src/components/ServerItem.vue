@@ -1,7 +1,6 @@
 <template>
-  <div
-    class="rounded-xl px-4 py-3 relative bg-gray-100" style="opacity: 0.5;"
-  >
+  <div class="rounded-xl px-4 py-3 relative bg-gray-100"
+    style="opacity: 0.65; color: #FFFFFF; background-color: #000000;">
     <div class="absolute right-4 top-4 group flex flex-col items-end">
       <StatusIndicator :status="isOnline(server)" class="w-3 h-3" />
       <div class="hidden group-hover:block p-2 rounded-xl border text-sm bg-gray-100 z-[9999] mt-1 border-gray-400">
@@ -25,24 +24,18 @@
       <span v-if="isCountryFlagEmoji(server.location)">
         {{ server.location }}
       </span>
-      <img
-        v-else :src="`/image/flags/${server.location.toLowerCase()}.png`" :alt="`${server.location} flag`"
-        class="h-4 inline-block rounded-sm"
-      >
-      <img
-        v-if="labels.os !== undefined" :src="`/image/os/${labels.os}.png`" :alt="`${labels.os} os`"
-        class="h-4 inline-block rounded-sm"
-      >
+      <img v-else :src="`/image/flags/${server.location.toLowerCase()}.png`" :alt="`${server.location} flag`"
+        class="h-4 inline-block rounded-sm">
+      <img v-if="labels.os !== undefined" :src="`/image/os/${labels.os}.png`" :alt="`${labels.os} os`"
+        class="h-4 inline-block rounded-sm">
       <span class="whitespace-nowrap overflow-ellipsis">
         {{ server.alias || server.name }}
       </span>
       <Bandage>
         运行时间
-        <span
-          :class="{
-            'text-red-500': !isOnline(server),
-          }"
-        >
+        <span :class="{
+          'text-red-500': !isOnline(server),
+        }">
           {{ isOnline(server) ? server.uptime : '离线' }}
         </span>
       </Bandage>
@@ -94,10 +87,12 @@
         </Bandage>
       </template>
       <Bandage class="flex items-center">
-        下载 <IconDownload class="w-4 h-4" />{{ formatBytes(server.network_in, 1) }}
+        下载
+        <IconDownload class="w-4 h-4" />{{ formatBytes(server.network_in, 1) }}
       </Bandage>
       <Bandage class="flex items-center">
-        上传 <IconUpload class="w-4 h-4" />{{ formatBytes(server.network_out, 1) }}
+        上传
+        <IconUpload class="w-4 h-4" />{{ formatBytes(server.network_out, 1) }}
       </Bandage>
       <Bandage v-if="server.tcp_count !== undefined">
         TCP {{ server.tcp_count }}

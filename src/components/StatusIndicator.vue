@@ -2,8 +2,8 @@
   <div
     class="rounded-full inline-block"
     :class="{
-      'bg-green-400': status,
-      'bg-red-500': !status,
+      'bg-green-900': status,
+      'bg-red-900': !status,
     }"
   />
 </template>
