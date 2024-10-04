@@ -1,6 +1,8 @@
 <template>
-  <div
-    class="rounded-xl px-4 py-3 relative bg-gray-100"
+
+    <!-- class="rounded-xl px-4 py-3 relative bg-gray-100"  -->
+  <div 
+    class="rounded-xl px-4 py-3 relative bg-gray-100" style="opacity: 0.7;"
   >
     <div class="absolute right-4 top-4 group flex flex-col items-end">
       <StatusIndicator
@@ -36,12 +38,12 @@
       </span>
       <img
         v-else
-        :src="`/image/flags/${server.location.toLowerCase()}.svg`" :alt="`${server.location} flag`"
+        :src="`/image/flags/${server.location.toLowerCase()}.png`" :alt="`${server.location} flag`"
         class="h-4 inline-block rounded-sm"
       >
       <img
         v-if="labels.os !== undefined"
-        :src="`/image/os/${labels.os}.svg`" :alt="`${labels.os} os`"
+        :src="`/image/os/${labels.os}.png`" :alt="`${labels.os} os`"
         class="h-4 inline-block rounded-sm"
       >
       {{ server.alias || server.name }}

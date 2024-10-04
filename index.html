@@ -10,8 +10,25 @@
 
 <body>
   <div class="px-3 sm:px-6 min-h-screen relative">
-    <h1 class="text-4xl font-bold py-4">
-      服务器监控
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      /* 使页面高度为视口高度 */
+      /* 背景圖加上半透明遮罩 https://yuwensaf.github.io/dbc171b6/*/
+      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/var/www/bg/bg.jpg');
+      /* 替换为你的图片URL */
+      background-size: cover;
+      /* 使背景图片适应页面宽度 */
+      height: 100vh; /* 设置高度为视口高度 */
+      width: 100vw; /* 设置宽度为视口宽度 */
+      background-position: center;
+      /* 背景图片居中 */
+      position: relative;
+    }
+  </style>
+    <h1 class="text-4xl font-bold py-4" style="color: #ffffff">
+        Server Monitor
     </h1>
     <noscript>
       <p><strong>浏览此页面需要启用 JavaScript.</strong></p>
@@ -19,10 +36,8 @@
     </noscript>
     <div id="app"></div>
     <div class="text-center absolute left-0 bottom-0 py-4 w-full">
-      Powered by <a class="text-blue-500" href="https://github.com/zdz/ServerStatus-Rust"
-        target="_blank">ServerStatus-Rust</a>.
-      Theme <a class="text-blue-500" href="https://github.com/orilights/ServerStatus-Theme-Light"
-        target="_blank">Light</a> by <a class="text-blue-500" href="https://orilight.top/" target="_blank">OriLight</a>
+      <a class="text-blue-500" href="https://github.com/zdz/ServerStatus-Rust"
+        target="_blank">ServerStatus-Rust</a>
     </div>
   </div>
   <script type="module" src="/src/main.ts"></script>
