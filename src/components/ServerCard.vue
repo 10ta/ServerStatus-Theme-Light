@@ -1,11 +1,11 @@
 <template>
 
   <!-- class="rounded-xl px-4 py-3 relative bg-gray-100"  -->
-  <div class="rounded-xl px-4 py-3 relative bg-gray-100"
+  <div class="rounded-xl px-4 py-3 relative bg-gray-900"
     style="opacity: 0.65; color: #FFFFFF; background-color: #000000;">
     <div class="absolute right-4 top-4 group flex flex-col items-end">
       <StatusIndicator :status="isOnline(server)" class="w-3 h-3" />
-      <div class="hidden group-hover:block p-2 rounded-xl border text-sm bg-gray-100 z-[9999] mt-1 border-gray-400">
+      <div class="hidden group-hover:block p-2 rounded-xl border text-sm bg-gray-900 z-[9999] mt-1 border-gray-800">
         <div class="flex gap-2">
           <div class="flex items-center gap-1">
             IPv4
