@@ -4,31 +4,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ServerStatus</title>
+  <title>Server Monitor</title>
   <link rel="shortcut icon" href="/src/assets/favicon.png" type="image/x-icon">
 </head>
 
 <body>
   <div class="px-3 sm:px-6 min-h-screen relative">
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      /* 使页面高度为视口高度 */
-      /* 背景圖加上半透明遮罩 https://yuwensaf.github.io/dbc171b6/*/
-      background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('/var/www/bg/bg.jpg');
-      /* 替换为你的图片URL */
-      background-size: cover;
-      /* 使背景图片适应页面宽度 */
-      height: 100vh; /* 设置高度为视口高度 */
-      width: 100vw; /* 设置宽度为视口宽度 */
-      background-position: center;
-      /* 背景图片居中 */
-      position: relative;
-    }
-  </style>
-    <h1 class="text-4xl font-bold py-4" style="color: #ffffff">
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        /* 使页面高度为视口高度 */
+        /* 背景圖加上半透明遮罩 https://yuwensaf.github.io/dbc171b6/*/
+        background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('/var/www/bg/bg.jpg');
+        /* 替换为你的图片URL */
+        background-size: cover;
+        /* 使背景图片适应页面宽度 */
+        height: 100vh;
+        /* 设置高度为视口高度 */
+        width: 100vw;
+        /* 设置宽度为视口宽度 */
+        background-position: center;
+        /* 背景图片居中 */
+        position: relative;
+      }
+    </style>
+    <h1 class="text-4xl font-bold py-4">
+      <style>
+        .text-shadow {
+          color: #fafefa; 
+          text-shadow: black 0.1em 0.1em 0.2em
+        }
+      </style>
+      <p class="text-shadow">
         Server Monitor
+      </p>
     </h1>
     <noscript>
       <p><strong>浏览此页面需要启用 JavaScript.</strong></p>
@@ -36,8 +46,7 @@
     </noscript>
     <div id="app"></div>
     <div class="text-center absolute left-0 bottom-0 py-4 w-full">
-      <a class="text-blue-500" href="https://github.com/zdz/ServerStatus-Rust"
-        target="_blank">ServerStatus-Rust</a>
+      <a class="text-blue-500" href="https://github.com/zdz/ServerStatus-Rust" target="_blank">ServerStatus-Rust</a>
     </div>
   </div>
   <script type="module" src="/src/main.ts"></script>

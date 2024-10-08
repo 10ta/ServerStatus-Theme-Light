@@ -26,9 +26,9 @@
       <span v-if="isCountryFlagEmoji(server.location)">
         {{ server.location }}
       </span>
-      <img v-else :src="`/image/flags/${server.location.toLowerCase()}.png`" :alt="`${server.location} flag`"
+      <img v-else :src="`./image/flags/${server.location.toLowerCase()}.svg`" :alt="`${server.location} flag`"
         class="h-4 inline-block rounded-sm">
-      <img v-if="labels.os !== undefined" :src="`/image/os/${labels.os}.png`" :alt="`${labels.os} os`"
+      <img v-if="labels.os !== undefined" :src="`./image/os/${labels.os}.svg`" :alt="`${labels.os} os`"
         class="h-4 inline-block rounded-sm">
       {{ server.alias || server.name }}
     </div>
