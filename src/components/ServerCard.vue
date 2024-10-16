@@ -58,6 +58,18 @@
         {{ server.load_15 }}
       </Bandage>
     </div>
+    <div v-if="!compactMode" class="flex items-center gap-2">
+      延迟
+      <Bandage v-if="server.time_10010 !== undefined">
+        CU {{ server.time_10010 }}
+      </Bandage>
+      <Bandage v-if="server.time_189 !== undefined">
+        CT {{ server.time_189 }}
+      </Bandage>
+      <Bandage v-if="server.time_10086 !== undefined">
+        CM {{ server.time_10086 }}
+      </Bandage>
+    </div>
     <div v-if="server.cpu !== undefined" class="flex items-center gap-2">
       CPU
       <Progress :value="server.cpu" :max="100" :text="`${server.cpu}%`" class="flex-1">

@@ -22,6 +22,9 @@ export interface ServerData {
   network_out: number
   last_network_in: number
   last_network_out: number
+  time_10010: number
+  time_189: number
+  time_10086: number
   cpu: number
   memory_total: number
   memory_used: number
